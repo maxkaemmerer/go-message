@@ -20,6 +20,8 @@ func (mb *simpleMessageBus) Dispatch(msg Message) error {
 				return err
 			}
 		}
+	} else {
+		return fmt.Errorf("No handler found for message %s", namespace)
 	}
 	return nil
 }
